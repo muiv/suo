@@ -1,0 +1,61 @@
+User
+	username	String	Y	用户名
+	password	String	Y	密码（32位，小写，md5 加密）
+	regtime	Long	注册时间
+	last_update_time
+	status
+Lock
+	lockId	Int	锁ID
+	lockData	String	Y	锁数据，由SDK生成
+	lockAlias	String	N	锁别名
+	initial_time
+	lockName	String	锁的蓝牙名称
+	lockAlias	String	锁别名
+	lockMac	String	锁mac地址
+	electricQuantity	Int	锁电量
+	keyboardPwdVersion	Int	键盘密码版本: 0、1、2、3、4
+	specialValue	Int	锁特征值，用于表示锁支持的功能
+Key
+	keyId	Int	钥匙ID
+	lockId	Int	锁ID
+	userType	String	钥匙用户类型：110301-管理员钥匙，110302-普通用户钥匙。
+	keyStatus	String	钥匙状态，参考：/doc/api/keyStatus
+	lockName	String	锁的蓝牙名称
+	lockAlias	String	锁别名
+	lockKey	String	锁开门的关键信息，开门用的
+	lockMac	String	锁mac地址
+	lockFlagPos	Int	锁开门标志位
+	adminPwd	String	管理员钥匙会有，锁的管理员密码，锁管理相关操作需要携带，校验管理员权限
+	noKeyPwd	String	管理员钥匙会有，管理员键盘密码，管理员用该密码开门
+	deletePwd	String	二代锁的管理员钥匙会有，清空码，用于清空锁上的密码
+	electricQuantity	Int	锁电量
+	aesKeyStr	String	Aes加解密key
+	lockVersion	JsonObject	锁版本
+	startDate	Long	有效期开始时间
+	endDate	Long	有效期结束时间
+	timezoneRawOffset	Long	锁所在时区和UTC时区时间的差数，单位milliseconds
+	remarks	String	备注，留言
+	keyRight	Int	钥匙是否被授权：0-否，1-是
+	keyboardPwdVersion	Int	键盘密码版本: 0、1、2、3、4
+	specialValue	Int	锁特征值，用于表示锁支持的功能
+	remoteEnable	Int	是否支持远程开锁：1-是、2-否
+lockVersion
+	protocolType	Int	协议类型
+	protocolVersion	Int	协议版本
+	scene	Int	场景
+	groupId	Int	公司
+	orgId	Int	应用商	
+Group
+	id
+	name
+Organization
+	id
+	name
+lockRecord
+	lockId	Int	锁ID
+		recordType	Int 记录类型：1-App开锁、2-动过车位锁、3-插座开锁、4-键盘密码开锁，5-车位锁升，6-车位锁降,7-IC卡开锁，8-指纹开锁，9-手环开锁，10-机械钥匙开锁，11-蓝牙闭锁，12-网关开锁，29-非法开锁，30-门磁合上，31-门磁打开；
+		success	Int	是否成功：0-否，1-是
+		username	String	操作人用户名
+		keyboardPwd	String	键盘密码的密码，或者IC卡号或者手环地址
+		lockDate	Long	操作时锁上的时间
+		serverDate	Long	操作时锁上的时间

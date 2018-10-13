@@ -1,0 +1,65 @@
+用户相关接口
+	注册用户
+		username	String	Y	用户名
+		password	String	Y	密码（32位，小写，md5 加密）
+		date	Long	Y	当前时间（毫秒数）
+	用户重置密码
+		username	String	Y	用户名
+		password	String	Y	密码（32位，小写，md5 加密）
+		date	Long	Y	当前时间（毫秒数）
+	获取用户列表
+		userid	String	注册时返回的username
+		regtime	Long	注册时间
+	删除用户
+锁相关接口
+	锁初始化
+		lockData	String	Y	锁数据，由SDK生成
+		lockAlias	String	N	锁别名
+		date	Long	Y	当前时间（毫秒数）
+	获取名下锁列表
+		lockId	Int	锁ID
+		date	Long	锁初始化时间
+		lockName	String	锁的蓝牙名称
+		lockAlias	String	锁别名
+		lockMac	String	锁mac地址
+		electricQuantity	Int	锁电量
+		keyboardPwdVersion	Int	键盘密码版本: 0、1、2、3、4
+		specialValue	Int	锁特征值，用于表示锁支持的功能
+	获取锁的普通钥匙列表
+		keyId	Int	钥匙ID
+		lockId	Int	锁ID
+		openid	Int	钥匙所有者的openid
+		username	String	钥匙所有者的用户名
+		keyStatus	String	钥匙状态
+		startDate	Long	有效期开始时间
+		endDate	Long	有效期结束时间
+		keyRight	String	钥匙是否被授权：0-否，1-是
+		senderUsername	String	发送者用户名
+		remarks	String	备注，留言
+		date	Long	发送时间
+	删除所有普通钥匙
+	修改锁名称
+		lockId	Int	Y	锁ID
+		lockAlias	String	Y	锁别名
+		date	Long	Y	当前时间（毫秒数）
+	重置普通钥匙
+	
+	上传锁电量
+		electricQuantity	Int	Y	锁电量
+		date	Long	Y	当前时间（毫秒数）
+	转移锁
+		receiverUsername	String	Y	接收方用户名
+		lockIdList	String	Y	锁ID列表，示例：[1234,3332]
+		date	Long	Y	当前时间（毫秒数）
+钥匙相关接口
+	发送钥匙
+	同步钥匙数据
+	删除钥匙
+	冻结钥匙
+	解除冻结钥匙
+	修改钥匙有效期
+	钥匙授权
+	解除钥匙授权
+锁记录相关接口
+	获取开锁记录列表
+	上传锁记录
